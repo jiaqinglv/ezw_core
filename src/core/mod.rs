@@ -37,9 +37,9 @@ pub fn new_app<C, D, S>(
     conf: C,
     data: D,
     servers: S,
-    id: &'static str,
-    name: &'static str,
-    version: &'static str,
+    id: String,
+    name: String,
+    version: String,
 ) -> App<C, D, S>
 where
     C: ServerConfig + Sized + Send + Sync,
@@ -47,9 +47,9 @@ where
     S: Servers,
 {
     return App {
-        id: id.to_string(),
-        name: name.to_string(),
-        version: version.to_string(),
+        id,
+        name,
+        version,
         conf,
         data: Some(data),
         servers,
